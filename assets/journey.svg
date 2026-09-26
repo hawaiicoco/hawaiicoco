@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 270" width="760" height="270" role="img" aria-label="Research journey: hypofuse speech-recognition post-processing, then slotvox end-to-end spoken language understanding">
+  <style>
+    :root { color-scheme: light dark; }
+    .hd   { font: 600 15px ui-sans-serif, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #14324a; }
+    .lb   { font: 500 11px ui-sans-serif, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #5b7183; }
+    .mono { font: 500 10px ui-monospace, monospace; fill: #5b7183; }
+    .teal { stroke: #0d9488; } .vio { stroke: #7c3aed; }
+    .fteal { fill: #0d9488; } .fvio { fill: #7c3aed; }
+    .nbest { fill: none; stroke-width: 1.6; stroke-dasharray: 5 4; opacity: .75;
+             animation: flow 2.4s linear infinite both; }
+    @keyframes flow { to { stroke-dashoffset: -18 } }
+    .fused { fill: none; stroke-width: 3; stroke-linecap: round; }
+    .pulse { animation: pulse 2s ease-in-out infinite both; transform-origin: center; transform-box: fill-box; }
+    @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1 } 50% { transform: scale(1.25); opacity: .7 } }
+    .tok { animation: light 3.6s steps(1, end) infinite both; }
+    @keyframes light { 0%,72% { opacity: .22 } 12%,60% { opacity: 1 } }
+    .t2 { animation-delay: .3s } .t3 { animation-delay: .6s } .t4 { animation-delay: .9s }
+    .t5 { animation-delay: 1.2s } .t6 { animation-delay: 1.5s }
+    .ring { fill: none; stroke-width: 2; stroke-dasharray: 6 6;
+            animation: spin 9s linear infinite both; transform-origin: center; transform-box: fill-box; }
+    @keyframes spin { to { transform: rotate(360deg) } }
+    .wavebar { transform-origin: bottom; transform-box: fill-box; animation: bounce 1.5s ease-in-out infinite both; }
+    @keyframes bounce { 0%,100% { transform: scaleY(.4) } 50% { transform: scaleY(1) } }
+    .wb2 { animation-delay: .18s } .wb3 { animation-delay: .36s } .wb4 { animation-delay: .54s }
+    .wb5 { animation-delay: .72s } .wb6 { animation-delay: .9s }
+    .caret { animation: blink 1s step-end infinite both; }
+    @keyframes blink { 50% { opacity: 0 } }
+    .axis { stroke: #9db2c0; stroke-width: 1.5; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .hd { fill: #e6f1f7 } .lb, .mono { fill: #9db2c0 } .axis { stroke: #46606f }
+    }
+  </style>
+
+  <!-- ═══ Act 1 · hypofuse ═══ -->
+  <text class="hd" x="30" y="30">① hypofuse · 语音识别后处理</text>
+  <text class="mono" x="30" y="48">2025-01 → 2026-08 · 352 commits</text>
+  <!-- n-best hypotheses converging into fusion -->
+  <path class="nbest teal" d="M40 92 C 90 78, 130 106, 178 92"/>
+  <path class="nbest teal" d="M40 104 C 92 118, 132 88, 178 104" style="animation-delay:-.8s"/>
+  <path class="nbest teal" d="M40 116 C 88 104, 134 128, 178 116" style="animation-delay:-1.6s"/>
+  <circle class="fteal pulse" cx="196" cy="104" r="7"/>
+  <text class="lb" x="168" y="140">ROVER 融合</text>
+  <path class="fused teal" d="M206 104 C 236 104, 244 92, 268 92"/>
+  <!-- confusion-network mini arcs -->
+  <g transform="translate(268,92)">
+    <circle class="fteal" cx="0" cy="0" r="3.4"/><circle class="fteal" cx="34" cy="0" r="3.4"/><circle class="fteal" cx="68" cy="0" r="3.4"/>
+    <path class="nbest teal" d="M3 0 Q 17 -14 31 0"/><path class="nbest teal" d="M3 0 Q 17 14 31 0" style="animation-delay:-1.2s"/>
+    <path class="nbest teal" d="M37 0 Q 51 -12 65 0" style="animation-delay:-.6s"/>
+  </g>
+  <text class="lb" x="268" y="128">混淆网络 · n-gram 重打分 · 校准 · CER/WER 切片</text>
+
+  <!-- ═══ Act 2 · slotvox ═══ -->
+  <text class="hd" x="430" y="30">② slotvox · 端到端语音理解</text>
+  <text class="mono" x="430" y="48">2025-02 → 2026-08 · 342 commits</text>
+  <!-- waveform → codec tokens → LM → streaming reply -->
+  <g transform="translate(440,84)">
+    <rect class="wavebar fvio"    x="0"  y="0" width="5" height="34" rx="2"/>
+    <rect class="wavebar fvio wb2" x="9"  y="0" width="5" height="34" rx="2"/>
+    <rect class="wavebar fvio wb3" x="18" y="0" width="5" height="34" rx="2"/>
+    <rect class="wavebar fvio wb4" x="27" y="0" width="5" height="34" rx="2"/>
+    <rect class="wavebar fvio wb5" x="36" y="0" width="5" height="34" rx="2"/>
+    <rect class="wavebar fvio wb6" x="45" y="0" width="5" height="34" rx="2"/>
+  </g>
+  <path class="fused vio" d="M498 101 L 524 101"/>
+  <g transform="translate(528,88)">
+    <rect class="tok fvio"      x="0"  y="0"  width="11" height="11" rx="2"/>
+    <rect class="tok fvio t2"   x="15" y="0"  width="11" height="11" rx="2"/>
+    <rect class="tok fvio t3"   x="30" y="0"  width="11" height="11" rx="2"/>
+    <rect class="tok fvio t4"   x="0"  y="15" width="11" height="11" rx="2"/>
+    <rect class="tok fvio t5"   x="15" y="15" width="11" height="11" rx="2"/>
+    <rect class="tok fvio t6"   x="30" y="15" width="11" height="11" rx="2"/>
+  </g>
+  <text class="lb" x="512" y="146">codec tokens (RVQ)</text>
+  <path class="fused vio" d="M578 101 L 600 101"/>
+  <g transform="translate(622,101)">
+    <circle class="ring vio" cx="0" cy="0" r="15"/>
+    <circle class="fvio" cx="0" cy="0" r="5"/>
+  </g>
+  <text class="lb" x="598" y="146">对话 LM</text>
+  <path class="fused vio" d="M644 101 Q 664 101 664 84 L 664 74"/>
+  <g transform="translate(620,44)">
+    <rect x="0" y="0" width="108" height="30" rx="10" fill="none" stroke="#7c3aed" stroke-width="1.6"/>
+    <circle class="tok fvio"    cx="18" cy="15" r="3"/>
+    <circle class="tok fvio t3" cx="32" cy="15" r="3"/>
+    <circle class="tok fvio t5" cx="46" cy="15" r="3"/>
+    <rect class="caret fvio" x="58" y="8" width="2.4" height="14" rx="1"/>
+  </g>
+  <text class="lb" x="612" y="34">流式回复</text>
+
+  <!-- ═══ timeline axis ═══ -->
+  <g transform="translate(30,196)">
+    <path class="axis" d="M0 20 L 700 20"/>
+    <path class="axis" d="M694 15 L 700 20 L 694 25"/>
+    <rect x="0"   y="14" width="430" height="12" rx="6" fill="#0d9488" opacity=".28"/>
+    <rect x="52"  y="14" width="446" height="12" rx="6" fill="#7c3aed" opacity=".22"/>
+    <text class="mono" x="0"   y="44">2025-01</text>
+    <text class="mono" x="216" y="44">2025-10</text>
+    <text class="mono" x="430" y="44">2026-03</text>
+    <text class="mono" x="640" y="44">2026-08</text>
+    <text class="lb" x="252" y="-2">694 次提交 · 每一次都带构建/测试/格式检查回执 · 合成数据 · 无预训练权重</text>
+  </g>
+</svg>
