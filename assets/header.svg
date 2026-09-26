@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 120" width="760" height="120" role="img" aria-label="Zheng Haodi — speech recognition and end-to-end spoken language models">
+  <style>
+    :root { color-scheme: light dark; }
+    .ttl  { font: 600 26px ui-sans-serif, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #14324a; }
+    .sub  { font: 400 14px ui-sans-serif, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #5b7183; }
+    .acc  { fill: #0d9488; }
+    .bar  { fill: #0d9488; transform-origin: bottom; transform-box: fill-box;
+            animation: bounce 1.6s ease-in-out infinite both; }
+    .b2 { animation-delay: .2s } .b3 { animation-delay: .4s; fill: #7c3aed }
+    .b4 { animation-delay: .6s; fill: #7c3aed } .b5 { animation-delay: .8s }
+    @keyframes bounce { 0%,100% { transform: scaleY(.35) } 50% { transform: scaleY(1) } }
+    .wipe { animation: reveal 3.4s steps(30, end) both; }
+    @keyframes reveal { from { width: 0 } to { width: 620px } }
+    .caretmove { animation: caret 3.4s steps(30, end) both; }
+    @keyframes caret { from { transform: translateX(0) } to { transform: translateX(620px) } }
+    .blink { animation: blink 1s step-end infinite both; }
+    @keyframes blink { 50% { opacity: 0 } }
+    @media (prefers-color-scheme: dark) {
+      .ttl { fill: #e6f1f7 } .sub { fill: #9db2c0 }
+    }
+  </style>
+
+  <!-- equalizer motif -->
+  <g transform="translate(24,34)">
+    <rect class="bar"    x="0"  y="0" width="7" height="42" rx="3"/>
+    <rect class="bar b2" x="12" y="0" width="7" height="42" rx="3"/>
+    <rect class="bar b3" x="24" y="0" width="7" height="42" rx="3"/>
+    <rect class="bar b4" x="36" y="0" width="7" height="42" rx="3"/>
+    <rect class="bar b5" x="48" y="0" width="7" height="42" rx="3"/>
+  </g>
+
+  <!-- typewriter title (attribute width = final state; CSS animates from 0) -->
+  <clipPath id="tw"><rect class="wipe" x="90" y="18" width="620" height="40"/></clipPath>
+  <text class="ttl" x="92" y="46" clip-path="url(#tw)">Zheng Haodi · 语音识别 × 端到端语音大模型</text>
+  <g class="caretmove"><rect class="blink acc" x="92" y="24" width="3" height="28" rx="1"/></g>
+
+  <text class="sub" x="92" y="78">Shanghai Jiao Tong University · offline-first · reproducible · synthetic-data honest</text>
+  <g transform="translate(92,92)">
+    <rect width="86" height="4" rx="2" fill="#0d9488" opacity=".8"/>
+    <rect x="92" width="52" height="4" rx="2" fill="#7c3aed" opacity=".8"/>
+  </g>
+</svg>
