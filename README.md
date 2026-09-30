@@ -2,7 +2,7 @@
 
 ![Zheng Haodi — 语音识别 × 端到端语音大模型](assets/header.svg)
 
-[![Shenzhen Technology University11](https://img.shields.io/badge/Shanghai_Jiao_Tong_University-SJTU-0d9488?style=flat-square)](https://github.com/hawaiicoco)
+[![Shenzhen Technology University](https://img.shields.io/badge/Shenzhen_Technology_University-SZTU-0d9488?style=flat-square)](https://github.com/hawaiicoco)
 ![speech recognition](https://img.shields.io/badge/focus-speech_recognition-7c3aed?style=flat-square)
 ![end-to-end spoken LM](https://img.shields.io/badge/focus-end--to--end_spoken_LM-0d9488?style=flat-square)
 ![offline-first](https://img.shields.io/badge/offline--first-always-5b7183?style=flat-square)
